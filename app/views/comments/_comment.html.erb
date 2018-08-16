@@ -1,0 +1,19 @@
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+          by: <strong>@<%= comment.name %></strong><br/>
+          <p><%= comment.comment %></p><br/>
+
+        </p>
+      </div>
+    </div>
+
+    <% if current_user.id == @tweet.user_id  || current_user.id == comment.user_id %>
+     <%= link_to 'Delete', [comment.tweet, comment],
+                  method: :delete, class: "button is-danger", data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </article>
+
+</div>
